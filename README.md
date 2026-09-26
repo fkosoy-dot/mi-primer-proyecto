@@ -6,3 +6,8 @@
    ## Mi objetivo
 
    Quiero organizar mis trabajos de Big Data.
+   ```markdown
+   ## Mi primer avance
+
+   Hoy creé un repositorio y guardé mi primer commit.
+   ```
