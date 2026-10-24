@@ -1,0 +1,113 @@
+erDiagram
+  FACT_COTIZACION }o--|| DIM_PROVEEDOR : "proveedor_key"
+  FACT_COTIZACION }o--|| DIM_CATEGORIA : "categoria_key"
+  FACT_COTIZACION }o--|| DIM_ZONA : "zona_origen_key / zona_destino_key"
+  FACT_COTIZACION }o--|| DIM_FECHA : "fecha_key"
+  FACT_COTIZACION }o--|| DIM_TIEMPO : "minuto_key"
+  FACT_COTIZACION }o--o| DIM_CLIMA : "clima_key"
+  FACT_COTIZACION }o--o| DIM_EVENTO : "evento_key"
+  FACT_COTIZACION }o--o| FACT_BUSQUEDA : "busqueda_id"
+  FACT_BUSQUEDA }o--|| DIM_USUARIO : "usuario_key"
+  FACT_BUSQUEDA }o--|| DIM_ZONA : "zona_origen_key / zona_destino_key"
+  FACT_BUSQUEDA }o--|| DIM_FECHA : "fecha_key"
+  FACT_BUSQUEDA }o--o| DIM_CATEGORIA : "categoria_elegida_key"
+  DIM_CATEGORIA }o--|| DIM_PROVEEDOR : "proveedor_key"
+
+  FACT_COTIZACION {
+    string cotizacion_id PK
+    string busqueda_id FK "null si viene del panel"
+    int proveedor_key FK
+    int categoria_key FK
+    int zona_origen_key FK
+    int zona_destino_key FK
+    int fecha_key FK
+    int minuto_key FK
+    int clima_key FK
+    int evento_key FK
+    timestamp ts_cotizacion "event time"
+    timestamp ts_ingesta
+    string fuente "api, partner, crowd, panel"
+    decimal precio_ars
+    decimal precio_min_ars
+    decimal precio_max_ars
+    decimal precio_por_km_ars
+    int eta_min
+    int duracion_estimada_min
+    decimal distancia_km
+    decimal multiplicador_dinamico "null si no se informa"
+    boolean es_precio_cerrado
+  }
+  FACT_BUSQUEDA {
+    string busqueda_id PK
+    string usuario_key FK
+    int zona_origen_key FK
+    int zona_destino_key FK
+    int fecha_key FK
+    timestamp ts_busqueda
+    int n_cotizaciones
+    int n_proveedores
+    decimal precio_min_ars
+    decimal precio_max_ars
+    decimal dispersion_pct
+    int categoria_elegida_key FK
+    boolean convirtio "abrió deep link"
+    decimal ahorro_vs_habitual_ars
+    int latencia_ms
+  }
+  DIM_PROVEEDOR {
+    int proveedor_key PK
+    string nombre
+    string tipo_integracion
+    decimal comision_derivacion_pct
+  }
+  DIM_CATEGORIA {
+    int categoria_key PK
+    int proveedor_key FK
+    string nombre_comercial "UberX, DiDi Express"
+    string segmento_homologado "Económico, Confort, Taxi, Premium"
+    int capacidad
+    date valido_desde "SCD2"
+    date valido_hasta
+  }
+  DIM_ZONA {
+    int zona_key PK
+    string h3_index "resolución 8"
+    string barrio
+    string comuna_o_partido
+    boolean es_aeropuerto
+    decimal lat_centroide
+    decimal lon_centroide
+  }
+  DIM_FECHA {
+    int fecha_key PK
+    date fecha
+    string dia_semana
+    boolean es_feriado
+    boolean hay_paro_transporte
+  }
+  DIM_TIEMPO {
+    int minuto_key PK
+    int hora
+    string franja "pico mañana, valle, pico tarde, noche"
+  }
+  DIM_CLIMA {
+    int clima_key PK
+    timestamp hora
+    decimal lluvia_mm
+    decimal temperatura_c
+    boolean alerta_smn
+  }
+  DIM_EVENTO {
+    int evento_key PK
+    string tipo "partido, recital, paro"
+    int zona_key FK
+    timestamp inicio
+    timestamp fin
+    int asistencia_estimada
+  }
+  DIM_USUARIO {
+    string usuario_key PK "hash, sin datos personales"
+    date fecha_alta
+    string app_habitual_declarada
+    string segmento
+  }

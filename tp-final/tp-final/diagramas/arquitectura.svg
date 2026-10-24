@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 810" font-family="Inter, DejaVu Sans, sans-serif" font-size="15">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#6b6a65"/></marker>
+  </defs>
+  <rect width="1600" height="810" fill="#ffffff"/>
+  <text x="20" y="38" font-size="22" font-weight="700" fill="#0b0b0b">Cada cotización sirve dos veces: responde al usuario en menos de 2 s y alimenta el lakehouse</text>
+
+  <!-- column labels -->
+  <g font-size="13" font-weight="700" fill="#52514e" letter-spacing="1">
+    <text x="20" y="72">FUENTES</text>
+    <text x="290" y="72">CAMINO ONLINE</text>
+    <text x="580" y="72">INGESTA</text>
+    <text x="800" y="72">LAKEHOUSE (DATABRICKS + DELTA SOBRE S3)</text>
+    <text x="1350" y="72">CONSUMO</text>
+  </g>
+
+
+  <!-- Fuentes -->
+  <g>
+    <rect x="20" y="90" width="220" height="80" rx="8" fill="none" stroke="#6b6a65" stroke-width="1.4"/>
+    <text x="36" y="118" font-weight="700" fill="#0b0b0b">Contexto</text>
+    <text x="36" y="140" font-size="13" fill="#52514e">clima, feriados, eventos,</text>
+    <text x="36" y="158" font-size="13" fill="#52514e">barrios y celdas H3</text>
+
+    <rect x="20" y="230" width="220" height="90" rx="8" fill="none" stroke="#6b6a65" stroke-width="1.4"/>
+    <text x="36" y="258" font-weight="700" fill="#0b0b0b">App móvil / web</text>
+    <text x="36" y="280" font-size="13" fill="#52514e">búsquedas, clicks,</text>
+    <text x="36" y="298" font-size="13" fill="#52514e">elección, feedback</text>
+
+    <rect x="20" y="400" width="220" height="100" rx="8" fill="none" stroke="#6b6a65" stroke-width="1.4"/>
+    <text x="36" y="428" font-weight="700" fill="#0b0b0b">Proveedores</text>
+    <text x="36" y="450" font-size="13" fill="#52514e">Uber API (acceso aprobado)</text>
+    <text x="36" y="468" font-size="13" fill="#52514e">acuerdos con DiDi y Cabify</text>
+    <text x="36" y="486" font-size="13" fill="#52514e">cotizaciones de usuarios</text>
+  </g>
+
+  <!-- Online -->
+  <g>
+    <rect x="290" y="230" width="240" height="90" rx="8" fill="none" stroke="#6b6a65" stroke-width="1.4"/>
+    <text x="306" y="258" font-weight="700" fill="#0b0b0b">API backend</text>
+    <text x="306" y="280" font-size="13" fill="#52514e">contenedores en AWS</text>
+    <text x="306" y="298" font-size="13" fill="#52514e">arma la comparación</text>
+
+    <rect x="290" y="400" width="240" height="90" rx="8" fill="none" stroke="#6b6a65" stroke-width="1.4"/>
+    <text x="306" y="428" font-weight="700" fill="#0b0b0b">Orquestador de cotizaciones</text>
+    <text x="306" y="450" font-size="13" fill="#52514e">consulta las apps en paralelo</text>
+    <text x="306" y="468" font-size="13" fill="#52514e">timeout de 1,5 s por app</text>
+
+    <rect x="290" y="540" width="240" height="80" rx="8" fill="none" stroke="#6b6a65" stroke-width="1.4"/>
+    <text x="306" y="568" font-weight="700" fill="#0b0b0b">Redis (clave-valor)</text>
+    <text x="306" y="590" font-size="13" fill="#52514e">cotizaciones con TTL de 60 s</text>
+    <text x="306" y="608" font-size="13" fill="#52514e">+ features online</text>
+  </g>
+
+  <!-- Kafka -->
+  <rect x="580" y="300" width="170" height="130" rx="8" fill="none" stroke="#6b6a65" stroke-width="1.4"/>
+  <text x="596" y="328" font-weight="700" fill="#0b0b0b">Kafka (MSK)</text>
+  <text x="596" y="352" font-size="13" fill="#52514e">topics:</text>
+  <text x="596" y="370" font-size="13" fill="#52514e">cotizaciones</text>
+  <text x="596" y="388" font-size="13" fill="#52514e">eventos_app</text>
+  <text x="596" y="406" font-size="13" fill="#52514e">feedback</text>
+
+  <!-- Lakehouse -->
+  <rect x="800" y="200" width="500" height="270" rx="10" fill="#f4f3f0" stroke="#6b6a65" stroke-width="1.4"/>
+  <text x="912" y="228" font-size="13" fill="#52514e">Lakeflow Pipelines con expectativas de calidad en cada capa</text>
+  <rect x="820" y="300" width="145" height="130" rx="8" fill="#ffffff" stroke="#6b6a65" stroke-width="1.4"/>
+  <text x="892" y="330" text-anchor="middle" font-weight="700" fill="#0b0b0b">Bronze</text>
+  <text x="892" y="354" text-anchor="middle" font-size="13" fill="#52514e">JSON tal cual</text>
+  <text x="892" y="372" text-anchor="middle" font-size="13" fill="#52514e">llega,</text>
+  <text x="892" y="390" text-anchor="middle" font-size="13" fill="#52514e">append-only</text>
+  <rect x="980" y="300" width="145" height="130" rx="8" fill="#ffffff" stroke="#6b6a65" stroke-width="1.4"/>
+  <text x="1052" y="330" text-anchor="middle" font-weight="700" fill="#0b0b0b">Silver</text>
+  <text x="1052" y="354" text-anchor="middle" font-size="13" fill="#52514e">deduplicado,</text>
+  <text x="1052" y="372" text-anchor="middle" font-size="13" fill="#52514e">tipado, H3,</text>
+  <text x="1052" y="390" text-anchor="middle" font-size="13" fill="#52514e">segmentos</text>
+  <text x="1052" y="408" text-anchor="middle" font-size="13" fill="#52514e">homologados</text>
+  <rect x="1140" y="300" width="145" height="130" rx="8" fill="#e3eefb" stroke="#2a78d6" stroke-width="2.2"/>
+  <text x="1212" y="330" text-anchor="middle" font-weight="700" fill="#0b0b0b">Gold</text>
+  <text x="1212" y="354" text-anchor="middle" font-size="13" fill="#0b0b0b">modelo estrella</text>
+  <text x="1212" y="372" text-anchor="middle" font-size="13" fill="#0b0b0b">índices de precio</text>
+  <text x="1212" y="390" text-anchor="middle" font-size="13" fill="#0b0b0b">KPIs del negocio</text>
+
+  <!-- Consumo -->
+  <rect x="1350" y="230" width="230" height="90" rx="8" fill="none" stroke="#6b6a65" stroke-width="1.4"/>
+  <text x="1366" y="258" font-weight="700" fill="#0b0b0b">Tableros internos</text>
+  <text x="1366" y="280" font-size="13" fill="#52514e">Databricks SQL + Power BI</text>
+  <rect x="1350" y="400" width="230" height="90" rx="8" fill="none" stroke="#6b6a65" stroke-width="1.4"/>
+  <text x="1366" y="428" font-weight="700" fill="#0b0b0b">Índice de precios (B2B)</text>
+  <text x="1366" y="450" font-size="13" fill="#52514e">API y reporte mensual</text>
+  <text x="1366" y="468" font-size="13" fill="#52514e">para empresas y prensa</text>
+  <rect x="1350" y="540" width="230" height="80" rx="8" fill="none" stroke="#6b6a65" stroke-width="1.4"/>
+  <text x="1366" y="568" font-weight="700" fill="#0b0b0b">Machine Learning</text>
+  <text x="1366" y="590" font-size="13" fill="#52514e">Feature Store, MLflow,</text>
+  <text x="1366" y="608" font-size="13" fill="#52514e">Model Serving</text>
+
+  <!-- Bands -->
+  <rect x="800" y="700" width="780" height="40" rx="8" fill="none" stroke="#6b6a65" stroke-width="1.4"/>
+  <text x="1190" y="726" text-anchor="middle" fill="#0b0b0b">Unity Catalog: permisos, linaje, etiquetas de datos personales</text>
+  <rect x="20" y="752" width="1560" height="40" rx="8" fill="none" stroke="#6b6a65" stroke-width="1.4" stroke-dasharray="6 4"/>
+  <text x="800" y="778" text-anchor="middle" fill="#0b0b0b">Operación: CI/CD con GitHub Actions · infraestructura como código (Terraform) · alertas de latencia, frescura y drift</text>
+  <!-- connectors -->
+  <g fill="none" stroke="#6b6a65" stroke-width="1.6">
+    <path d="M240 275H288" marker-end="url(#a)"/>
+    <path d="M410 320V398" marker-end="url(#a)"/>
+    <path d="M288 445H242" marker-end="url(#a)"/>
+    <path d="M242 465H288" marker-end="url(#a)"/>
+    <path d="M400 490V538" marker-end="url(#a)"/>
+    <path d="M420 538V490" marker-end="url(#a)"/>
+    <path d="M530 255H665V298" marker-end="url(#a)"/>
+    <path d="M530 460H665V432" marker-end="url(#a)"/>
+    <path d="M240 130H892V298" marker-end="url(#a)" stroke-dasharray="6 4"/>
+    <path d="M750 365H818" marker-end="url(#a)"/>
+    <path d="M965 365H978" marker-end="url(#a)"/>
+    <path d="M1125 365H1138" marker-end="url(#a)"/>
+    <path d="M1285 335H1310V275H1348" marker-end="url(#a)"/>
+    <path d="M1285 395H1310V445H1348" marker-end="url(#a)"/>
+    <path d="M1212 430V580H1348" marker-end="url(#a)"/>
+    <path d="M1465 620V660H410V622" marker-end="url(#a)"/>
+  </g>
+  <g font-size="12.5" fill="#52514e">
+    <text x="545" y="245">eventos de uso</text>
+    <text x="545" y="480">cada cotización</text>
+    <text x="400" y="122">batch diario (Workflows)</text>
+    <text x="757" y="356">stream</text>
+    <text x="1222" y="520">features</text>
+    <text x="760" y="652">features online y predicción "¿conviene esperar?" (Model Serving)</text>
+  </g>
+</svg>

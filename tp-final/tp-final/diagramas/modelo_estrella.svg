@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" font-family="Inter, DejaVu Sans, sans-serif" font-size="13.5">
+<rect width="1600" height="900" fill="#ffffff"/>
+<text x="40" y="44" font-size="22" font-weight="700" fill="#0b0b0b">Modelo estrella en Gold: una fila por cotización, analizable por app, zona, hora, clima y evento</text>
+<text x="40" y="72" font-size="14" fill="#52514e">PK = clave primaria · FK = clave foránea · las líneas van de la dimensión (1) al hecho (N). fact_busqueda también usa dim_zona, dim_fecha y dim_categoria (dimensiones conformadas).</text>
+<g fill="none" stroke="#8a8984" stroke-width="1.5">
+<path d="M360 164H400V259H560"/>
+<text x="368" y="158" stroke="none" fill="#52514e" font-size="12" text-anchor="start">1</text>
+<text x="552" y="253" stroke="none" fill="#52514e" font-size="12" text-anchor="end">N</text>
+<path d="M360 354H440V321H560"/>
+<text x="368" y="348" stroke="none" fill="#52514e" font-size="12" text-anchor="start">1</text>
+<text x="552" y="315" stroke="none" fill="#52514e" font-size="12" text-anchor="end">N</text>
+<path d="M360 534H480V379H560"/>
+<text x="368" y="528" stroke="none" fill="#52514e" font-size="12" text-anchor="start">1</text>
+<text x="552" y="373" stroke="none" fill="#52514e" font-size="12" text-anchor="end">N</text>
+<path d="M360 693H520V441H560"/>
+<text x="368" y="687" stroke="none" fill="#52514e" font-size="12" text-anchor="start">1</text>
+<text x="552" y="435" stroke="none" fill="#52514e" font-size="12" text-anchor="end">N</text>
+<path d="M1210 164H1125V259H1040"/>
+<text x="1202" y="158" stroke="none" fill="#52514e" font-size="12" text-anchor="end">1</text>
+<text x="1048" y="253" stroke="none" fill="#52514e" font-size="12" text-anchor="start">N</text>
+<path d="M1210 363H1125V321H1040"/>
+<text x="1202" y="357" stroke="none" fill="#52514e" font-size="12" text-anchor="end">1</text>
+<text x="1048" y="315" stroke="none" fill="#52514e" font-size="12" text-anchor="start">N</text>
+<path d="M1210 564H1125V410H1040"/>
+<text x="1202" y="558" stroke="none" fill="#52514e" font-size="12" text-anchor="end">1</text>
+<text x="1048" y="404" stroke="none" fill="#52514e" font-size="12" text-anchor="start">N</text>
+<path d="M1210 764H1125V762H1040"/>
+<text x="1202" y="758" stroke="none" fill="#52514e" font-size="12" text-anchor="end">1</text>
+<text x="1048" y="756" stroke="none" fill="#52514e" font-size="12" text-anchor="start">N</text>
+<path d="M800 690V470"/>
+<text x="808" y="682" stroke="none" fill="#52514e" font-size="12">1 búsqueda</text>
+<text x="808" y="488" stroke="none" fill="#52514e" font-size="12">N cotizaciones (≈18)</text>
+</g>
+<rect x="560" y="230" width="480" height="240" rx="8" fill="#e3eefb" stroke="#2a78d6" stroke-width="2"/>
+<text x="574" y="256" font-weight="700" font-size="14.5" fill="#0b0b0b">FACT_COTIZACION</text>
+<line x1="560" x2="1040" y1="266" y2="266" stroke="#2a78d6"/>
+<text x="574" y="286" font-size="11.5" font-weight="700" fill="#52514e">PK</text>
+<text x="604" y="286" fill="#0b0b0b">cotizacion_id</text>
+<text x="574" y="305" font-size="11.5" font-weight="700" fill="#52514e">FK</text>
+<text x="604" y="305" fill="#0b0b0b">busqueda_id (null si viene del panel)</text>
+<text x="574" y="324" font-size="11.5" font-weight="700" fill="#52514e">FK</text>
+<text x="604" y="324" fill="#0b0b0b">proveedor_key · categoria_key</text>
+<text x="574" y="343" font-size="11.5" font-weight="700" fill="#52514e">FK</text>
+<text x="604" y="343" fill="#0b0b0b">zona_origen_key · zona_destino_key</text>
+<text x="574" y="362" font-size="11.5" font-weight="700" fill="#52514e">FK</text>
+<text x="604" y="362" fill="#0b0b0b">fecha_key · minuto_key</text>
+<text x="574" y="381" font-size="11.5" font-weight="700" fill="#52514e">FK</text>
+<text x="604" y="381" fill="#0b0b0b">clima_key · evento_key</text>
+<text x="604" y="400" fill="#0b0b0b">ts_cotizacion (event time) · ts_ingesta · fuente</text>
+<text x="604" y="419" fill="#0b0b0b">precio_ars · precio_min/max_ars · precio_por_km_ars</text>
+<text x="604" y="438" fill="#0b0b0b">eta_min · duracion_estimada_min · distancia_km</text>
+<text x="604" y="457" fill="#0b0b0b">multiplicador_dinamico · es_precio_cerrado</text>
+<rect x="560" y="690" width="480" height="145" rx="8" fill="#e3eefb" stroke="#2a78d6" stroke-width="2"/>
+<text x="574" y="716" font-weight="700" font-size="14.5" fill="#0b0b0b">FACT_BUSQUEDA</text>
+<line x1="560" x2="1040" y1="726" y2="726" stroke="#2a78d6"/>
+<text x="574" y="746" font-size="11.5" font-weight="700" fill="#52514e">PK</text>
+<text x="604" y="746" fill="#0b0b0b">busqueda_id</text>
+<text x="574" y="765" font-size="11.5" font-weight="700" fill="#52514e">FK</text>
+<text x="604" y="765" fill="#0b0b0b">usuario_key · zona_origen/destino_key · fecha_key</text>
+<text x="574" y="784" font-size="11.5" font-weight="700" fill="#52514e">FK</text>
+<text x="604" y="784" fill="#0b0b0b">categoria_elegida_key (null si no eligió)</text>
+<text x="604" y="803" fill="#0b0b0b">n_proveedores · precio_min/max_ars · dispersion_pct</text>
+<text x="604" y="822" fill="#0b0b0b">convirtio · ahorro_vs_habitual_ars · latencia_ms</text>
+<rect x="40" y="110" width="320" height="107" rx="8" fill="#ffffff" stroke="#6b6a65" stroke-width="1.4"/>
+<text x="54" y="136" font-weight="700" font-size="14.5" fill="#0b0b0b">DIM_ZONA</text>
+<line x1="40" x2="360" y1="146" y2="146" stroke="#c9c8c3"/>
+<text x="54" y="166" font-size="11.5" font-weight="700" fill="#52514e">PK</text>
+<text x="84" y="166" fill="#0b0b0b">zona_key</text>
+<text x="84" y="185" fill="#0b0b0b">h3_index (res. 8) · barrio</text>
+<text x="84" y="204" fill="#0b0b0b">comuna_o_partido · es_aeropuerto</text>
+<rect x="40" y="300" width="320" height="107" rx="8" fill="#ffffff" stroke="#6b6a65" stroke-width="1.4"/>
+<text x="54" y="326" font-weight="700" font-size="14.5" fill="#0b0b0b">DIM_FECHA</text>
+<line x1="40" x2="360" y1="336" y2="336" stroke="#c9c8c3"/>
+<text x="54" y="356" font-size="11.5" font-weight="700" fill="#52514e">PK</text>
+<text x="84" y="356" fill="#0b0b0b">fecha_key</text>
+<text x="84" y="375" fill="#0b0b0b">fecha · dia_semana</text>
+<text x="84" y="394" fill="#0b0b0b">es_feriado · hay_paro_transporte</text>
+<rect x="40" y="490" width="320" height="88" rx="8" fill="#ffffff" stroke="#6b6a65" stroke-width="1.4"/>
+<text x="54" y="516" font-weight="700" font-size="14.5" fill="#0b0b0b">DIM_TIEMPO</text>
+<line x1="40" x2="360" y1="526" y2="526" stroke="#c9c8c3"/>
+<text x="54" y="546" font-size="11.5" font-weight="700" fill="#52514e">PK</text>
+<text x="84" y="546" fill="#0b0b0b">minuto_key</text>
+<text x="84" y="565" fill="#0b0b0b">hora · franja horaria</text>
+<rect x="40" y="650" width="320" height="107" rx="8" fill="#ffffff" stroke="#6b6a65" stroke-width="1.4"/>
+<text x="54" y="676" font-weight="700" font-size="14.5" fill="#0b0b0b">DIM_CLIMA</text>
+<line x1="40" x2="360" y1="686" y2="686" stroke="#c9c8c3"/>
+<text x="54" y="706" font-size="11.5" font-weight="700" fill="#52514e">PK</text>
+<text x="84" y="706" fill="#0b0b0b">clima_key</text>
+<text x="84" y="725" fill="#0b0b0b">hora · lluvia_mm</text>
+<text x="84" y="744" fill="#0b0b0b">temperatura_c · alerta_smn</text>
+<rect x="1210" y="110" width="350" height="107" rx="8" fill="#ffffff" stroke="#6b6a65" stroke-width="1.4"/>
+<text x="1224" y="136" font-weight="700" font-size="14.5" fill="#0b0b0b">DIM_PROVEEDOR</text>
+<line x1="1210" x2="1560" y1="146" y2="146" stroke="#c9c8c3"/>
+<text x="1224" y="166" font-size="11.5" font-weight="700" fill="#52514e">PK</text>
+<text x="1254" y="166" fill="#0b0b0b">proveedor_key</text>
+<text x="1254" y="185" fill="#0b0b0b">nombre · tipo_integracion</text>
+<text x="1254" y="204" fill="#0b0b0b">comision_derivacion_pct</text>
+<rect x="1210" y="300" width="350" height="126" rx="8" fill="#ffffff" stroke="#6b6a65" stroke-width="1.4"/>
+<text x="1224" y="326" font-weight="700" font-size="14.5" fill="#0b0b0b">DIM_CATEGORIA (SCD2)</text>
+<line x1="1210" x2="1560" y1="336" y2="336" stroke="#c9c8c3"/>
+<text x="1224" y="356" font-size="11.5" font-weight="700" fill="#52514e">PK</text>
+<text x="1254" y="356" fill="#0b0b0b">categoria_key</text>
+<text x="1224" y="375" font-size="11.5" font-weight="700" fill="#52514e">FK</text>
+<text x="1254" y="375" fill="#0b0b0b">proveedor_key</text>
+<text x="1254" y="394" fill="#0b0b0b">nombre_comercial · segmento_homologado</text>
+<text x="1254" y="413" fill="#0b0b0b">valido_desde · valido_hasta</text>
+<rect x="1210" y="510" width="350" height="107" rx="8" fill="#ffffff" stroke="#6b6a65" stroke-width="1.4"/>
+<text x="1224" y="536" font-weight="700" font-size="14.5" fill="#0b0b0b">DIM_EVENTO</text>
+<line x1="1210" x2="1560" y1="546" y2="546" stroke="#c9c8c3"/>
+<text x="1224" y="566" font-size="11.5" font-weight="700" fill="#52514e">PK</text>
+<text x="1254" y="566" fill="#0b0b0b">evento_key</text>
+<text x="1224" y="585" font-size="11.5" font-weight="700" fill="#52514e">FK</text>
+<text x="1254" y="585" fill="#0b0b0b">zona_key</text>
+<text x="1254" y="604" fill="#0b0b0b">tipo · inicio · fin · asistencia</text>
+<rect x="1210" y="720" width="350" height="88" rx="8" fill="#ffffff" stroke="#6b6a65" stroke-width="1.4"/>
+<text x="1224" y="746" font-weight="700" font-size="14.5" fill="#0b0b0b">DIM_USUARIO</text>
+<line x1="1210" x2="1560" y1="756" y2="756" stroke="#c9c8c3"/>
+<text x="1224" y="776" font-size="11.5" font-weight="700" fill="#52514e">PK</text>
+<text x="1254" y="776" fill="#0b0b0b">usuario_key (hash)</text>
+<text x="1254" y="795" fill="#0b0b0b">fecha_alta · app_habitual_declarada</text>
+<text x="1040" y="220" text-anchor="end" font-size="12.5" fill="#52514e">Grano: una cotización de un proveedor, para una categoría, en un instante</text>
+<text x="1040" y="855" text-anchor="end" font-size="12.5" fill="#52514e">Grano: una búsqueda de un usuario (origen, destino, momento)</text>
+</svg>

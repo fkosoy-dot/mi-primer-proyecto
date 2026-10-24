@@ -1,0 +1,8 @@
+fecha_publicacion,fuente,origen,destino,horario,app_a,precio_a_ars,app_b,precio_b_ars,nota
+2024-08-19,iProfesional,Obelisco,Liniers,mediodia dia habil,Uber,7750,Cabify,9200,"Cabify figura como '$9.20' por error de formato; se asume 9200 (la nota informa brecha de 19%)"
+2024-08-19,iProfesional,Obelisco,Barrancas de Belgrano,mediodia dia habil,Uber,4040,Cabify,6400,
+2024-08-19,iProfesional,Obelisco,Quilmes,mediodia dia habil,Uber,9300,Cabify,10550,
+2024-08-19,iProfesional,Obelisco,Castelar,mediodia dia habil,Cabify,14100,DiDi,16900,
+2024-08-19,iProfesional,Obelisco,Pilar,mediodia dia habil,Uber,20400,DiDi,31400,
+2024-08-19,iProfesional,Obelisco,Aeroparque,mediodia dia habil,DiDi,5200,Cabify,6500,
+2024-08-19,iProfesional,Obelisco,Aeropuerto de Ezeiza,mediodia dia habil,Cabify,16500,DiDi,24100,

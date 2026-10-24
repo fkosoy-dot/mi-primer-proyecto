@@ -1,0 +1,15 @@
+flowchart LR
+  S["Silver y Gold<br/>cotizaciones + contexto"] --> FP["Pipeline de features<br/>ventanas 15 y 60 min"]
+  FP --> FO[("Features offline<br/>tablas Delta")]
+  FP --> FN[("Features online<br/>Redis")]
+  FO --> TR["Entrenamiento semanal<br/>Databricks Workflows"]
+  TR --> EX["MLflow Tracking<br/>persistencia vs regresión<br/>vs LightGBM"]
+  EX --> GATE{"¿Mejora el MAPE<br/>del champion actual<br/>en el último mes?"}
+  GATE -- no --> FIN["Se descarta<br/>y queda registrado"]
+  GATE -- sí --> REG["Model Registry en Unity Catalog<br/>alias challenger → champion"]
+  REG --> SRV["Model Serving<br/>endpoint REST"]
+  FN --> SRV
+  SRV --> APP["API: conviene pedir ahora<br/>o esperar 10 min"]
+  SRV --> LOG[("Tabla de inferencias")]
+  LOG --> MON["Monitoreo<br/>error real a t+10 min,<br/>drift de features"]
+  MON -- alerta: error o drift sobre el umbral --> TR
